@@ -173,7 +173,7 @@ pub fn execute<'a>(matches: &ArgMatches<'a>) -> Result<(), Error> {
                     org: &org,
                     project: Some(&project),
                     release: &release.version,
-                    dist: Some(dist),
+                    dist: env::var("APPCENTER_BUILD_ID"),
                     wait: matches.is_present("wait"),
                 })?;
             }
